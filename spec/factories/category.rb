@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    name { Fake::Book.genre }
+    name { Faker::Book.genre }
   end
 end
