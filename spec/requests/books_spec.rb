@@ -48,7 +48,7 @@ RSpec.describe "Books", type: :request do
     end
 
     context 'when request attributes are valid' do
-      before { post '/api/V1/books', params: valid_attributes }
+      before { post '/api/v1/books', params: valid_attributes }
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
