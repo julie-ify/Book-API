@@ -6,14 +6,14 @@ module Api
       # GET /categories
       def index
         @categories = Category.all
-        render json: CategoriesRepresent.new(@categories).as_json
+        render json: CategoriesRepresenter.new(@categories).as_json
       end
 
       # POST /category
       def create
         @category = Category.create(category_params)
         if @category.save
-          render json: CategoryRepresent.new(@category).as_json
+          render json: CategoryRepresenter.new(@category).as_json
         else
           render json: @category.errors, status: :unprocessable_entity
         end
@@ -31,7 +31,7 @@ module Api
       end
 
       def category_params
-        params.require(:category).permit(:name)
+        params.permit(:name)
       end
     end
   end

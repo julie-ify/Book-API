@@ -25,11 +25,11 @@ RSpec.describe "Categories", type: :request do
     let(:valid_name) { {name: 'Horror' } }
     context 'when the request is valid' do
       before { post '/api/v1/categories', params: valid_name }
-      it 'returns status code 201' do
-        expect(response).to have_http_status(201)
-      end
       it 'creates a category' do
         expect(json['name']).to eq ('Horror')
+      end
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe "Categories", type: :request do
 
   # Test suite for DELETE /category/:id
   describe 'DELETE /categories/:id' do
-    before { delete '/api/v1/categories/#{category_id}' }
+    before { delete "/api/v1/categories/#{category_id}" }
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
