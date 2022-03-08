@@ -20,7 +20,7 @@ RSpec.describe "Categories", type: :request do
   end
 
   # Test suite for POST /category
-  describe 'POST /category' do
+  describe 'POST /categories' do
     # valid payload
     let(:valid_name) { { name: 'Horror' } }
     context 'when the request is valid' do
