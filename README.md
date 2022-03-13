@@ -45,7 +45,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Run `bundle install` to install all the necessary gems
 - Run `rake db:create` and `rake db:migrate` then run `rails s`
-- Go to the browser and type `localhost:3000` to see the API endpoints
+- Go to the browser and type `localhost:3000/api/v1/categories` and `localhost:3000/api/v1/books` to see the API endpoints
 
 ### Test
 
@@ -78,7 +78,7 @@ Books
     when book does not exist
       returns status code 404
       returns a not found message
-  POST /books/:id
+  POST /books
     when request attributes are valid
       returns status code 201
     when request attributes are invalid
@@ -107,6 +107,9 @@ Categories
       returns a validation failure message
   DELETE /categories/:id
     returns status code 204
+
+Finished in 6.87 seconds (files took 12 seconds to load)
+28 examples, 0 failures
 ```
 
 ## Author

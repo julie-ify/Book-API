@@ -9,6 +9,7 @@ class BookRepresenter
       title: book.title,
       author: book.author,
       category: book.category.name,
+      user: book.user.username,
       date_added: book.created_at
      }
   end
