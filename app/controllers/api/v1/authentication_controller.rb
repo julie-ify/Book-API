@@ -8,8 +8,8 @@ module Api
 
       def create
         if user
-          raise AuthenticateError unless user.authenticate(params.require(:pasword))
-          render json: UserReprensenter.new(user).as_json, status: :created
+          raise AuthenticateError unless user.authenticate(params.require(:password))
+          render json: UserRepresenter.new(user).as_json, status: :created
         else
           render json: { error: 'No such user' }, status: :unauthorized
         end
@@ -21,11 +21,11 @@ module Api
       end
 
       def parameter_missing(error)
-        render json: { error: error.message }, status: unprocessable_entity
+        render json: { error: error.message }, status: :unprocessable_entity
       end
 
       def handle_unauthenticated
-        render json: { error: 'Incorrect password' }, status: unauthorized
+        render json: { error: 'Incorrect password' }, status: :unauthorized
       end
     end
   end
