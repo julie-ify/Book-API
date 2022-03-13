@@ -43,7 +43,7 @@ RSpec.describe "Books", type: :request do
 
   describe 'POST /books' do
     let!(:history) { create(:category) }
-    let!(:user) { FactoryBot.create(:user, username: 'user3', password: 'password') }
+    let!(:user) { create(:user) }
     let(:valid_attributes) do
       { title: 'Whispers of Time', author: 'Dr. Krishna Saksena', category_id: history.id, user_id: user.id }
     end
