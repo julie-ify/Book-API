@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before _action :authenticate_request!
+      before_action :authenticate_request!
       before_action :set_book, only: %i[update show destroy]
 
       # GET /books
