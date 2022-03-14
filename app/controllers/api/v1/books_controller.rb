@@ -17,7 +17,7 @@ module Api
 
       # POST /book
       def create
-        @book = Book.create(book_params)
+        @book = current_user!.books.create(book_params)
         if @book.save
           render json: BookRepresenter.new(@book).as_json, status: :created
         else
