@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Books", type: :request do
   # initialize test data
-  let(:user) { FactoryBot.create(:user, username: 'acushla', password: 'password') }
+  let(:user) { FactoryBot.create(:user, username: 'juliana', password: 'password') }
   let!(:books) { create_list(:book, 10) }
   let(:book_id) { books.first.id }
 
@@ -44,7 +44,6 @@ RSpec.describe "Books", type: :request do
 
   describe 'POST /books' do
     let!(:history) { create(:category) }
-    # let!(:user) { create(:user) }
     let(:valid_attributes) do
       { title: 'Whispers of Time', author: 'Dr. Krishna Saksena', category_id: history.id }
     end
