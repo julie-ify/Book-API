@@ -8,7 +8,7 @@ class AuthenticationTokenService
     JWT.encode payload, HMAC_SECRET, ALGORITHM_TYPE
   end
 
-  def self.encode(token)
+  def self.decode(token)
     JWT.decode token, HMAC_SECRET, true, { algorithm: ALGORITHM_TYPE }
   rescue JWT::ExpiredSignature, JWT::DecodeError
     false
@@ -18,7 +18,7 @@ class AuthenticationTokenService
     !expired(payload)
   end
 
-  def self.expierd(payload)
+  def self.expired(payload)
     Time.at(payload['exp']) < Time.now
   end
 
